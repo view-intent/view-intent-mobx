@@ -1,5 +1,5 @@
 export declare abstract class RootStore {
     [key: string]: any;
-    set(value: any): void;
+    set(model: any): void;
 }
 export default RootStore;

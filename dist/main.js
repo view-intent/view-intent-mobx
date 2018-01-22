@@ -68,48 +68,48 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return extras; });
-/* unused harmony export Reaction */
-/* unused harmony export untracked */
-/* unused harmony export IDerivationState */
-/* unused harmony export Atom */
-/* unused harmony export BaseAtom */
-/* unused harmony export useStrict */
-/* unused harmony export isStrictModeEnabled */
-/* unused harmony export spy */
-/* unused harmony export comparer */
-/* unused harmony export asReference */
-/* unused harmony export asFlat */
-/* unused harmony export asStructure */
-/* unused harmony export asMap */
-/* unused harmony export isModifierDescriptor */
-/* unused harmony export isObservableObject */
-/* unused harmony export isBoxedObservable */
-/* unused harmony export isObservableArray */
-/* unused harmony export ObservableMap */
-/* unused harmony export isObservableMap */
-/* unused harmony export map */
-/* unused harmony export transaction */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return observable; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return computed; });
-/* unused harmony export isObservable */
-/* unused harmony export isComputed */
-/* unused harmony export extendObservable */
-/* unused harmony export extendShallowObservable */
-/* unused harmony export observe */
-/* unused harmony export intercept */
-/* unused harmony export autorun */
-/* unused harmony export autorunAsync */
-/* unused harmony export when */
-/* unused harmony export reaction */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return action; });
-/* unused harmony export isAction */
-/* unused harmony export runInAction */
-/* unused harmony export expr */
-/* unused harmony export toJS */
-/* unused harmony export createTransformer */
-/* unused harmony export whyRun */
-/* unused harmony export isArrayLike */
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return extras; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return Reaction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "M", function() { return untracked; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return IDerivationState; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Atom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return BaseAtom; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "N", function() { return useStrict; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "D", function() { return isStrictModeEnabled; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "J", function() { return spy; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return comparer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return asReference; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return asFlat; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return asStructure; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return asMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return isModifierDescriptor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "C", function() { return isObservableObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return isObservableValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "A", function() { return isObservableArray; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return ObservableMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "B", function() { return isObservableMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E", function() { return map; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "L", function() { return transaction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "F", function() { return observable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return computed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return isObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return isComputed; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return extendObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return extendShallowObservable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "G", function() { return observe; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return intercept; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return autorun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return autorunAsync; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "O", function() { return when; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return reaction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return action; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return isAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "I", function() { return runInAction; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return expr; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "K", function() { return toJS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return createTransformer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "P", function() { return whyRun; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return isArrayLike; });
 /** MobX - (c) Michel Weststrate 2015, 2016 - MIT Licensed */
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation. All rights reserved.
@@ -3796,8 +3796,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "Collection", function() { return __WEBPACK_IMPORTED_MODULE_2__store_collection__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__store__ = __webpack_require__(1);
 /* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return __WEBPACK_IMPORTED_MODULE_3__store__["a"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "extras", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["s"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "Reaction", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["e"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "untracked", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["M"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "IDerivationState", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["c"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "Atom", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["a"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "BaseAtom", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["b"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "useStrict", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["N"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isStrictModeEnabled", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["D"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "spy", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["J"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "comparer", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["m"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "asReference", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["i"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "asFlat", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["g"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "asStructure", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["j"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "asMap", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["h"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isModifierDescriptor", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["y"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isObservableObject", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["C"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isBoxedObservable", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["w"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isObservableArray", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["A"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "ObservableMap", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["d"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isObservableMap", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["B"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "map", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["E"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "transaction", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["L"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "observable", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["F"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "computed", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["n"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isObservable", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["z"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isComputed", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["x"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "extendObservable", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["q"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "extendShallowObservable", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["r"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "observe", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["G"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "intercept", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["t"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "autorun", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["k"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "autorunAsync", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["l"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "when", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["O"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "reaction", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["H"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "action", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["f"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isAction", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["u"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "runInAction", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["I"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "expr", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["p"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "toJS", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["K"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "createTransformer", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["o"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "whyRun", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["P"]; });
+/* harmony namespace reexport (by provided) */ __webpack_require__.d(__webpack_exports__, "isArrayLike", function() { return __WEBPACK_IMPORTED_MODULE_0_mobx__["v"]; });
 
-__WEBPACK_IMPORTED_MODULE_0_mobx__["c" /* extras */].isolateGlobalState();
+__WEBPACK_IMPORTED_MODULE_0_mobx__["s" /* extras */].isolateGlobalState();
+
 
 
 
@@ -3850,15 +3893,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var RootStore = /** @class */ (function () {
     function RootStore() {
     }
-    RootStore.prototype.set = function (value) {
-        for (var key in value) {
-            if (value.hasOwnProperty(key)) {
-                this[key] = value[key];
+    RootStore.prototype.set = function (model) {
+        for (var key in model) {
+            if (model.hasOwnProperty(key)) {
+                this[key] = model[key];
             }
         }
     };
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["a" /* action */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["f" /* action */],
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
         __metadata("design:returntype", void 0)
@@ -4024,75 +4067,75 @@ var CollectionMap = /** @class */ (function () {
         }
     };
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Object)
     ], CollectionMap.prototype, "pageMapIds", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Number)
     ], CollectionMap.prototype, "skip", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Number)
     ], CollectionMap.prototype, "pageSize", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Number)
     ], CollectionMap.prototype, "page", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Number)
     ], CollectionMap.prototype, "pageQty", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Number)
     ], CollectionMap.prototype, "totalItems", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["b" /* computed */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["n" /* computed */],
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [])
     ], CollectionMap.prototype, "pageCollectionIds", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["b" /* computed */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["n" /* computed */],
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [])
     ], CollectionMap.prototype, "pageCollection", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["b" /* computed */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["n" /* computed */],
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [])
     ], CollectionMap.prototype, "infiniteCollectionIds", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["b" /* computed */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["n" /* computed */],
         __metadata("design:type", Array),
         __metadata("design:paramtypes", [])
     ], CollectionMap.prototype, "infiniteCollection", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["a" /* action */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["f" /* action */],
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Number, Number, Number]),
         __metadata("design:returntype", void 0)
     ], CollectionMap.prototype, "setCurrentPage", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["a" /* action */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["f" /* action */],
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
         __metadata("design:returntype", void 0)
     ], CollectionMap.prototype, "setItem", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["a" /* action */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["f" /* action */],
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
         __metadata("design:returntype", void 0)
     ], CollectionMap.prototype, "getItem", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["a" /* action */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["f" /* action */],
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object]),
         __metadata("design:returntype", void 0)
     ], CollectionMap.prototype, "removeItem", null);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["a" /* action */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["f" /* action */],
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Array, Number, Number, Number]),
         __metadata("design:returntype", void 0)
@@ -4126,15 +4169,15 @@ var Collection = /** @class */ (function (_super) {
         }
     };
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Object)
     ], Collection.prototype, "instances", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["d" /* observable */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["F" /* observable */],
         __metadata("design:type", Object)
     ], Collection.prototype, "items", void 0);
     __decorate([
-        __WEBPACK_IMPORTED_MODULE_0_mobx__["a" /* action */],
+        __WEBPACK_IMPORTED_MODULE_0_mobx__["f" /* action */],
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [String, Boolean]),
         __metadata("design:returntype", Boolean)
