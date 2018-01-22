@@ -5,7 +5,7 @@ export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore>
 	public name: string; // the name of the collections (Ex.: favoriteRestaurantes, )
 	public collection: Collection<TStore, TRootStore>;
 	public idFieldName: string;
-	@observable private pageMapIds: { [page: number]: string[] } = {};
+	@observable private pageMapIds: { [page: number]: Array<string | number> } = {};
 	@observable private skip: number = 0;
 	@observable private pageSize: number = 100000; // Rows or PageSize
 	@observable private page: number = 1;
@@ -17,7 +17,7 @@ export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore>
 		this.idFieldName = idFieldName;
 	}
 	// computed -------------------------------------------------
-	@computed public get pageCollectionIds(): string[] {
+	@computed public get pageCollectionIds(): Array<string | number> {
 		if (this.pageMapIds[this.page] !== undefined && this.pageMapIds[this.page] !== null) {
 			return this.pageMapIds[this.page];
 		} else {
@@ -34,8 +34,8 @@ export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore>
 			}
 		});
 	}
-	@computed public get infiniteCollectionIds(): string[] {
-		let returnIds: string[] = [];
+	@computed public get infiniteCollectionIds(): Array<string | number> {
+		let returnIds:  Array<string | number> = [];
 		for (let p = 1; p < this.page; p++) {
 			if (this.pageMapIds[p] !== undefined && this.pageMapIds[p] !== null) {
 				returnIds = returnIds.concat(returnIds, this.pageMapIds[p]);
@@ -82,7 +82,7 @@ export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore>
 	}
 	@action public setItems(items: TStore[], page: number = -1, pageSize: number = -1, pageQty: number = -1): void {
 		const hasItems: boolean = (items !== undefined && items !== null);
-		const pageIds: string[] = [];
+		const pageIds: Array<string | number> = [];
 		if (hasItems) {
 			items.forEach((item: TStore) => {
 				this.setItem(item);
