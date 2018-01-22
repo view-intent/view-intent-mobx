@@ -1,6 +1,6 @@
 {
 	"name": "view-intent-mobx",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "",
 	"main": "lib/main",
 	"types": "@types/main",
