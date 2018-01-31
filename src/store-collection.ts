@@ -107,6 +107,9 @@ export abstract class Collection<TStore extends { [field: string]: any; }, TRoot
 		this.type = type;
 		this.idFieldName = idFieldName;
 	}
+	@computed public get defaultCollection() {
+		return this.instances["default"];
+	}
 	@action public ensureCollectionMap(name: string, create: boolean = true): boolean {
 		if (this.instances[name] !== undefined && this.instances[name] !== null) {
 			if (create) {
