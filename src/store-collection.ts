@@ -1,7 +1,7 @@
-import { action, observable, computed } from "mobx";
+import { action, observable, computed, observe } from "mobx";
 import { Store } from "./store";
 
-export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore> {
+export class PaginatedList<TStore extends { [field: string]: any; }, TRootStore> {
 	public name: string; // the name of the collections (Ex.: favoriteRestaurantes, )
 	public collection: Collection<TStore, TRootStore>;
 	public idFieldName: string;
@@ -35,7 +35,7 @@ export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore>
 		});
 	}
 	@computed public get infiniteCollectionIds(): Array<string | number> {
-		let returnIds:  Array<string | number> = [];
+		let returnIds: Array<string | number> = [];
 		for (let p = 1; p < this.page; p++) {
 			if (this.pageMapIds[p] !== undefined && this.pageMapIds[p] !== null) {
 				returnIds = returnIds.concat(returnIds, this.pageMapIds[p]);
@@ -66,15 +66,15 @@ export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore>
 	}
 	// items controller
 	@action public setItem(item: TStore) {
-		this.collection.items[item[this.idFieldName]] = item;
+		this.collection.setItem(item);
 	}
 	@action public getItem(id: string | number) {
-		return this.collection.items[id.toString()];
+		return this.collection.getItem(id.toString());
 	}
 	@action public removeItem(id: string | number) {
 		const item = this.getItem(id);
 		if (item !== undefined && item !== null) {
-			delete this.collection.items[id];
+			this.collection.removeItem(id.toString());
 			return true;
 		} else {
 			return false; // remove success
@@ -98,22 +98,58 @@ export class CollectionMap<TStore extends { [field: string]: any; }, TRootStore>
 	}
 }
 export abstract class Collection<TStore extends { [field: string]: any; }, TRootStore> extends Store<TStore, TRootStore> {
-	public type: { new(rootStore: TRootStore): TStore; } = null;
-	public idFieldName: string;
-	@observable public instances: { [name: string]: CollectionMap<TStore, TRootStore>; } = {};
-	@observable public items: { [id: string]: TStore; } = {};
+	private type: { new(rootStore: TRootStore): TStore; } = null;
+	private idFieldName: string;
+	@observable private paginatedLists: { [name: string]: PaginatedList<TStore, TRootStore>; } = {};
+	@observable private items: { [id: string]: TStore; } = {};
 	constructor(rootStore: TRootStore, type: { new(...args: any[]): TStore; }, idFieldName: "id" | "name" | "string" | string = "id") {
 		super(rootStore);
 		this.type = type;
 		this.idFieldName = idFieldName;
 	}
 	@computed public get defaultCollection() {
-		return this.instances["default"];
+		return this.paginatedLists["default"];
 	}
-	@action public ensureCollectionMap(name: string, create: boolean = true): boolean {
-		if (this.instances[name] !== undefined && this.instances[name] !== null) {
+	@action public getPaginatedList(name: string): PaginatedList<TStore, TRootStore> {
+		this.ensurePaginatedList(name);
+		return this.paginatedLists[name];
+	}
+	@action public setItem(item: TStore) {
+		this.items[item[this.idFieldName].toString()] = item;
+	}
+	@action public getItem(id: string | number) {
+		return this.items[id.toString()];
+	}
+	@action public removeItem(id: string | number) {
+		const item = this.getItem(id);
+		if (item !== undefined && item !== null) {
+			delete this.items[id.toString()];
+			return true;
+		} else {
+			return false; // remove success
+		}
+	}
+	@action public collectGarbage(): void {
+		let ids: Array<string | number> = [];
+		for (const name in this.paginatedLists) {
+			if (this.paginatedLists.hasOwnProperty(name)) {
+				const paginatedList = this.paginatedLists[name];
+				ids = ids.concat(paginatedList.pageCollectionIds);
+			}
+		}
+		for (const id in this.items) {
+			if (this.items.hasOwnProperty(id)) {
+				const item = this.items[id];
+				if (ids.indexOf(id) === -1) {
+					this.removeItem(id);
+				}
+			}
+		}
+	}
+	@action public ensurePaginatedList(name: string, create: boolean = true): boolean {
+		if (this.paginatedLists[name] !== undefined && this.paginatedLists[name] !== null) {
 			if (create) {
-				this.instances[name] = new CollectionMap(name, this, this.idFieldName);
+				this.paginatedLists[name] = new PaginatedList(name, this, this.idFieldName);
 				return true;
 			}
 			return false;

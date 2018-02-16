@@ -59,8 +59,7 @@
 		"dist",
 		"tsdist"
 	],
-	"include": [
-		"src/**/*.tsx",
-		"src/**/*.ts"
+	"files": [
+		"src/main.ts"
 	]
 }

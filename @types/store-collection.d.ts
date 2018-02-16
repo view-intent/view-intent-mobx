@@ -1,5 +1,5 @@
 import { Store } from "./store";
-export declare class CollectionMap<TStore extends {
+export declare class PaginatedList<TStore extends {
     [field: string]: any;
 }, TRootStore> {
     name: string;
@@ -12,9 +12,9 @@ export declare class CollectionMap<TStore extends {
     private pageQty;
     private totalItems;
     constructor(name: string, collection: Collection<TStore, TRootStore>, idFieldName: string);
-    readonly pageCollectionIds: string[];
+    readonly pageCollectionIds: Array<string | number>;
     readonly pageCollection: TStore[];
-    readonly infiniteCollectionIds: string[];
+    readonly infiniteCollectionIds: Array<string | number>;
     readonly infiniteCollection: TStore[];
     setCurrentPage(currentPage: number, pageSize?: number, pageQty?: number): void;
     setItem(item: TStore): void;
@@ -25,18 +25,18 @@ export declare class CollectionMap<TStore extends {
 export declare abstract class Collection<TStore extends {
     [field: string]: any;
 }, TRootStore> extends Store<TStore, TRootStore> {
-    type: {
-        new (rootStore: TRootStore): TStore;
-    };
-    idFieldName: string;
-    instances: {
-        [name: string]: CollectionMap<TStore, TRootStore>;
-    };
-    items: {
-        [id: string]: TStore;
-    };
+    private type;
+    private idFieldName;
+    private paginatedLists;
+    private items;
     constructor(rootStore: TRootStore, type: {
         new (...args: any[]): TStore;
     }, idFieldName?: "id" | "name" | "string" | string);
-    ensureCollectionMap(name: string, create?: boolean): boolean;
+    readonly defaultCollection: PaginatedList<TStore, TRootStore>;
+    getPaginatedList(name: string): PaginatedList<TStore, TRootStore>;
+    setItem(item: TStore): void;
+    getItem(id: string | number): TStore;
+    removeItem(id: string | number): boolean;
+    collectGarbage(): void;
+    ensurePaginatedList(name: string, create?: boolean): boolean;
 }
