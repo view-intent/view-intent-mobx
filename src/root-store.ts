@@ -1,12 +1,12 @@
-import { action } from "mobx";
-export abstract class RootStore {
+import { action, observable, computed, observe, ObservableMap } from "mobx";
+import { Generic } from "./generic";
+import { Exclude } from "class-transformer";
+// import { Skip } from "serializer.ts/Decorators";
+
+@Exclude()
+export abstract class RootStore extends Generic {
 	[key: string]: any;
-	@action public set(model: any) {
-		for (const key in model) {
-			if (model.hasOwnProperty(key)) {
-				this[key] = model[key];
-			}
-		}
-	}
+	// @Skip()
+	// public rootStore: RootStore;
 }
 export default RootStore;

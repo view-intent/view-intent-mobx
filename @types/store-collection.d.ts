@@ -1,40 +1,84 @@
 import { Store } from "./store";
-export declare class PaginatedList<TStore extends {
-    [field: string]: any;
-}, TRootStore> {
+import { RootStore } from "./main";
+import { Generic } from "./generic";
+export interface IPaginatedListParameter<T> {
+    page: number;
+    rowsByPage: number;
+    count: number;
+    skip: number;
+    pageCount: number;
+    prevPage: number;
+    nextPage: number;
+    items: T[];
+    pageUrl: string;
+    nextPageUrl: string;
+    prevPageUrl: string;
+    pageUrlTemplate: string;
+    neighborPagesCount?: number;
+    nextPages?: number[];
+    prevPages?: number[];
+}
+export interface IPageInfo {
+    page: number;
+    rowsByPage?: number;
+    skip?: number;
+    prevPage?: number;
+    nextPage?: number;
+    pageUrl?: string;
+    nextPageUrl?: string;
+    prevPageUrl?: string;
+    pageUrlTemplate?: string;
+    neighborPagesCount?: number;
+    nextPages?: number[];
+    prevPages?: number[];
+}
+export declare class PaginatedList<TStore extends Store<TStore>> extends Generic {
     name: string;
-    collection: Collection<TStore, TRootStore>;
+    collection: Collection<TStore>;
     idFieldName: string;
-    private pageMapIds;
+    pageMapIds: {
+        [page: number]: Array<string | number>;
+    };
+    pageMapInfo: {
+        [page: number]: IPageInfo;
+    };
+    pageUrlTemplate: string | null;
+    count: number;
     private skip;
-    private pageSize;
+    private rowsByPage;
     private page;
-    private pageQty;
-    private totalItems;
-    constructor(name: string, collection: Collection<TStore, TRootStore>, idFieldName: string);
+    private pageCount;
+    private pageUrlTemplateDisposer;
+    constructor(name: string, collection: Collection<TStore>, idFieldName: string);
     readonly pageCollectionIds: Array<string | number>;
-    readonly pageCollection: TStore[];
+    readonly pageCollection: Array<TStore | null>;
     readonly infiniteCollectionIds: Array<string | number>;
-    readonly infiniteCollection: TStore[];
-    setCurrentPage(currentPage: number, pageSize?: number, pageQty?: number): void;
+    readonly infiniteCollection: Array<TStore | null>;
+    setPage(pageNumber: number): void;
+    nextPage(): void;
+    prevPage(): void;
+    loadPage(pageNumber: number): void;
+    readonly pageInfo: IPageInfo;
     setItem(item: TStore): void;
     getItem(id: string | number): TStore;
     removeItem(id: string | number): boolean;
-    setItems(items: TStore[], page?: number, pageSize?: number, pageQty?: number): void;
+    setItems(items: TStore[]): void;
+    setPaginatedList(paginatedList: IPaginatedListParameter<TStore>): void;
+    invalidateList(): void;
 }
-export declare abstract class Collection<TStore extends {
-    [field: string]: any;
-}, TRootStore> extends Store<TStore, TRootStore> {
+export declare abstract class Collection<TStore extends Store<TStore>> extends Store<TStore> {
+    paginatedLists: {
+        [name: string]: PaginatedList<TStore>;
+    };
+    items: {
+        [id: string]: TStore;
+    };
     private type;
     private idFieldName;
-    private paginatedLists;
-    private items;
-    constructor(rootStore: TRootStore, type: {
-        new (...args: any[]): TStore;
-    }, idFieldName?: "id" | "name" | "string" | string);
-    readonly defaultCollection: PaginatedList<TStore, TRootStore>;
-    getPaginatedList(name: string): PaginatedList<TStore, TRootStore>;
-    setItem(item: TStore): void;
+    constructor(rootStore: RootStore | undefined, type: typeof Store, idFieldName?: "id" | "name" | "string" | string);
+    readonly defaultCollection: PaginatedList<TStore>;
+    getPaginatedList(name: string): PaginatedList<TStore>;
+    setItem(item: any, root?: RootStore): void;
     getItem(id: string | number): TStore;
     removeItem(id: string | number): boolean;
     collectGarbage(): void;

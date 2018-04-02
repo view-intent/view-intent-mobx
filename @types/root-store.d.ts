@@ -1,5 +1,5 @@
-export declare abstract class RootStore {
+import { Generic } from "./generic";
+export declare abstract class RootStore extends Generic {
     [key: string]: any;
-    set(model: any): void;
 }
 export default RootStore;
