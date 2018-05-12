@@ -1,5 +1,5 @@
 export interface IPersistOutput {
-    [property: string]: string ;
+    [property: string]: string | number;
 }
 export interface IPersist {
     persistInput(stored: IPersistOutput): void;

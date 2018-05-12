@@ -62,6 +62,7 @@ export declare class PaginatedList<TStore extends Store<TStore>> extends Generic
     setItem(item: TStore): void;
     getItem(id: string | number): TStore;
     removeItem(id: string | number): boolean;
+    removeItems(ids: Array<string | number>): void;
     setItems(items: TStore[]): void;
     setPaginatedList(paginatedList: IPaginatedListParameter<TStore>): void;
     invalidateList(): void;
@@ -81,6 +82,7 @@ export declare abstract class Collection<TStore extends Store<TStore>> extends S
     setItem(item: any, root?: RootStore): void;
     getItem(id: string | number): TStore;
     removeItem(id: string | number): boolean;
+    removeItems(ids: Array<string | number>): void;
     collectGarbage(): void;
     ensurePaginatedList(name: string, create?: boolean): boolean;
 }

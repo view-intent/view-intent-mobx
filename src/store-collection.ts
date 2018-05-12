@@ -162,6 +162,11 @@ export class PaginatedList<TStore extends Store<TStore>> extends Generic {
 			return false; // remove success
 		}
 	}
+	@action public removeItems(ids: Array<string | number>): void {
+		ids.forEach((id: number | string) => {
+			this.removeItem(id);
+		});
+	}
 	// @action public setItems(items: TStore[], page: number = -1, rowsByPage: number = -1, pageCount: number = -1, count: number = -1): void {
 	@action public setItems(items: TStore[]): void {
 		const hasItems: boolean = !Is.nullOrUndefined(items);
@@ -278,6 +283,11 @@ export abstract class Collection<TStore extends Store<TStore>> extends Store<TSt
 			this.update();
 			return false; // remove success
 		}
+	}
+	@action public removeItems(ids: Array<string | number>): void {
+		ids.forEach((id: number | string) => {
+			this.removeItem(id);
+		});
 	}
 	@action public collectGarbage(): void {
 		let ids: Array<string | number> = [];
