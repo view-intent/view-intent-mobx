@@ -103,7 +103,7 @@ export class PaginatedList<TStore extends Store<TStore>> extends Generic {
 	}
 	// actions -------------------------------------------------
 	@action public setPage(pageNumber: number): void {
-		if (Is.nullOrUndefined( this.pageMapInfo[pageNumber] )) {
+		if (Is.nullOrUndefined(this.pageMapInfo[pageNumber])) {
 			this.pageMapInfo[this.page] = {
 				page: this.page,
 			};
@@ -180,8 +180,8 @@ export class PaginatedList<TStore extends Store<TStore>> extends Generic {
 		this.update();
 	}
 	@action public setPaginatedList(paginatedList: IPaginatedListParameter<TStore>): void {
-		if (!Is.nullOrUndefined(this.pageUrlTemplate )) {
-			if ( paginatedList.pageUrlTemplate.toLowerCase() !== this.pageUrlTemplate!.toLowerCase() ) {
+		if (!Is.nullOrUndefined(this.pageUrlTemplate)) {
+			if (paginatedList.pageUrlTemplate.toLowerCase() !== this.pageUrlTemplate!.toLowerCase()) {
 				this.invalidateList();
 			}
 		}
@@ -200,7 +200,7 @@ export class PaginatedList<TStore extends Store<TStore>> extends Generic {
 			this.pageMapIds[paginatedList.page] = pageIds;
 		}
 		if (paginatedList.page === 1) {
-			if ( !Is.nullOrUndefined(paginatedList.pageUrlTemplate) ) {
+			if (!Is.nullOrUndefined(paginatedList.pageUrlTemplate)) {
 				if (!Is.nullOrUndefined(this.pageInfo)) {
 					if (this.pageInfo.pageUrlTemplate!.toLowerCase() !== paginatedList.pageUrlTemplate.toLowerCase()) {
 						this.setPage(1);
@@ -211,7 +211,7 @@ export class PaginatedList<TStore extends Store<TStore>> extends Generic {
 		if (paginatedList.rowsByPage > -1) { this.rowsByPage = paginatedList.rowsByPage; }
 		if (paginatedList.pageCount > -1) { this.pageCount = paginatedList.pageCount; }
 		if (paginatedList.count > -1) { this.count = paginatedList.count; }
-		if ( paginatedList.skip > -1 ) { this.skip = paginatedList.skip; }
+		if (paginatedList.skip > -1) { this.skip = paginatedList.skip; }
 
 		// -------------------
 		this.pageMapInfo[paginatedList.page] = {
@@ -263,7 +263,7 @@ export abstract class Collection<TStore extends Store<TStore>> extends Store<TSt
 	@action public setItem(item: any, root?: RootStore) {
 		if (item !== null && item !== undefined) {
 			this.items[item[this.idFieldName].toString()] = new (this.type as any)(this);
-			plainToClassFromExist(this.items[item[this.idFieldName].toString()], item, {enableCircularCheck: true});
+			plainToClassFromExist(this.items[item[this.idFieldName].toString()], item, { enableCircularCheck: true });
 			// this.items[item[this.idFieldName].toString()] = t;
 			// console.log("----");
 			// console.log(this.items[item[this.idFieldName].toString()]);
@@ -308,7 +308,7 @@ export abstract class Collection<TStore extends Store<TStore>> extends Store<TSt
 		this.update();
 	}
 	@action public ensurePaginatedList(name: string, create: boolean = true): boolean {
-		if ( Is.nullOrUndefined(this.paginatedLists[name]) ) {
+		if (Is.nullOrUndefined(this.paginatedLists[name])) {
 			if (create) {
 				this.paginatedLists[name] = new PaginatedList(name, this, this.idFieldName);
 				this.update();
